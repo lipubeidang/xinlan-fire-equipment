@@ -17,12 +17,15 @@
         </div>
       </div>
     </div>
-    
+
     <nav class="navbar">
-      <div class="container">
-        <ul class="nav-menu">
+      <div class="container nav-container">
+        <button class="menu-toggle" @click="menuOpen = !menuOpen" aria-label="菜单">
+          <i :class="menuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+        </button>
+        <ul class="nav-menu" :class="{ open: menuOpen }">
           <li v-for="item in navItems" :key="item.id">
-            <router-link :to="item.href">
+            <router-link :to="item.href" @click="menuOpen = false">
               <i v-if="item.icon" :class="item.icon"></i> {{ item.text }}
             </router-link>
           </li>
@@ -39,6 +42,11 @@ export default {
     navItems: {
       type: Array,
       required: true
+    }
+  },
+  data() {
+    return {
+      menuOpen: false
     }
   }
 }
@@ -107,6 +115,20 @@ export default {
   padding: 0;
 }
 
+.nav-container {
+  position: relative;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 12px 0;
+}
+
 .nav-menu {
   list-style: none;
   display: flex;
@@ -146,29 +168,46 @@ export default {
   .top-bar .container {
     flex-direction: column;
     text-align: center;
-    gap: 15px;
-  }
-
-  .contact-info {
-    flex-direction: column;
     gap: 10px;
   }
 
-  .nav-menu {
-    flex-direction: column;
-    gap: 0;
+  .contact-info {
+    display: none;
   }
 
   .logo h1 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .logo .sub-company {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .logo i {
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: var(--white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-menu li a,
+  .nav-menu li .router-link-active {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--bg-light);
+    text-align: left;
   }
 }
 </style>
