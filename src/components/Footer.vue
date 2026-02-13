@@ -4,7 +4,12 @@
       <div class="footer-content">
         <div class="footer-section">
           <h3>烟台市鑫澜消防器材有限公司</h3>
-          <p>专业的消防设备供应商，为您的安全保驾护航</p>
+            <!-- 已移除描述语句 -->
+            <h3 style="margin-top: 8px;">山东安捷瑞消防检测有限公司</h3>
+            <div style="margin-top: 8px;">建筑消防设施维保</div>
+            <div>建筑消防设施检测</div>
+            <div>建筑电气防火检测</div>
+            <div>建筑消防安全评估</div>
         </div>
         <div class="footer-section">
           <h3>快速链接</h3>
