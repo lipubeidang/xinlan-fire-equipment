@@ -20,6 +20,20 @@
         </button>
       </div>
 
+      <!-- PDF下载 -->
+      <div class="pdf-download-section">
+        <div class="pdf-download-card">
+          <i class="fas fa-file-pdf pdf-icon"></i>
+          <div class="pdf-info">
+            <h3>居安特2026年产品价格表</h3>
+            <p>下载完整产品价格表，了解全部产品详情及报价</p>
+          </div>
+          <a href="./居安特2026年价格表1.pdf" download class="pdf-download-btn">
+            <i class="fas fa-download"></i> 下载PDF
+          </a>
+        </div>
+      </div>
+
       <!-- 产品列表 -->
       <div class="products-grid">
         <div 
@@ -131,6 +145,68 @@ export default {
   transform: translateY(-2px);
 }
 
+.pdf-download-section {
+  margin-bottom: 40px;
+}
+
+.pdf-download-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 30px;
+  background: linear-gradient(135deg, #fff5f5, #fff);
+  border: 2px solid #e74c3c;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.pdf-download-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(231, 76, 60, 0.15);
+}
+
+.pdf-icon {
+  font-size: 42px;
+  color: #e74c3c;
+  flex-shrink: 0;
+}
+
+.pdf-info {
+  flex: 1;
+}
+
+.pdf-info h3 {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.pdf-info p {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.pdf-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.pdf-download-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -234,6 +310,16 @@ export default {
 
   .categories-section {
     padding: 20px;
+  }
+
+  .pdf-download-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .pdf-icon {
+    font-size: 36px;
   }
 }
 
